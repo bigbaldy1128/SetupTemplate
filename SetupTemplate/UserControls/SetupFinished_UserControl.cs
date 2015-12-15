@@ -6,32 +6,34 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace SetupTemplate.UserControls
 {
-    public partial class Welcome_UserControl : UserControl,ISetupUserControl
+    public partial class SetupFinished_UserControl : UserControl, ISetupUserControl
     {
-        public Welcome_UserControl()
+        public SetupFinished_UserControl()
         {
             InitializeComponent();
         }
 
         public void Next()
         {
-            Util.Navigate(typeof(InstallPath_UserControl));
+            Util.Exit();
         }
 
         public void Previous()
         {
-            
+            throw new NotImplementedException();
         }
 
         public void InitUI()
         {
             MainForm.ButtonPrevious.Enabled = false;
             MainForm.ButtonNext.Enabled = true;
-            MainForm.ButtonCancel.Enabled = true;
-            MainForm.ButtonNext.Text = "下一步 >";
+            MainForm.ButtonNext.Text = "完成";
+            MainForm.ButtonCancel.Enabled = false;
+            MainForm.CloseButtonEnabled = true;
         }
     }
 }

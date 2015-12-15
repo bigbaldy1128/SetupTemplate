@@ -30,10 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Setup_UserControl));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -50,14 +52,14 @@
             this.panel2.Size = new System.Drawing.Size(532, 58);
             this.panel2.TabIndex = 9;
             // 
-            // pictureBox1
+            // label1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(15, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(59, 55);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(92, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 12);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "请等待“xxx”的安装完成";
             // 
             // label3
             // 
@@ -69,19 +71,36 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "安装中";
             // 
-            // label1
+            // pictureBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 12);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "请等待“代码卫士”的安装完成";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(15, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(59, 55);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(25, 155);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(479, 23);
+            this.progressBar1.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 137);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 12);
+            this.label2.TabIndex = 11;
             // 
             // Setup_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.panel2);
             this.Name = "Setup_UserControl";
             this.Size = new System.Drawing.Size(530, 320);
@@ -89,6 +108,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -99,5 +119,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label2;
     }
 }

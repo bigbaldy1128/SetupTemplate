@@ -8,41 +8,59 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using SetupTemplate.InstallationSteps;
+using System.Threading;
 
 namespace SetupTemplate.UserControls
 {
     public partial class Setup_UserControl : UserControl,ISetupUserControl
     {
-        public RichTextBox RichTextBox;
+        public Label Label;
         public ProgressBar ProgressBar;
 
         public Setup_UserControl()
         {
             InitializeComponent();
+            Label = this.label2;
+            ProgressBar = this.progressBar1;
         }
 
         public void Previous()
         {
-            SetupUtil.GoTo(typeof(Welcome_UserControl));
+            Util.Navigate(typeof(Welcome_UserControl));
         }
 
-        public void Next() //安装
+        public void Next() //下一步
+        {
+            Util.Navigate(typeof(SetupFinished_UserControl));
+        }
+
+        public void Install()
         {
             foreach (var step in System.Reflection.Assembly
                                  .GetExecutingAssembly()
                                  .GetImplementedObjectsByInterface<IInstallationStep>()
-                                 .OrderBy(t=>t.Order))
+                                 .OrderBy(t => t.Order))
             {
                 step.Setup(this);
             }
+            this.SafeCall(() =>
+            {
+                MainForm.ButtonNext.Enabled = true;
+                MainForm.CloseButtonEnabled = true;
+            });
         }
 
         public void InitUI()
         {
-            MainForm.ButtonPrevious.Enabled = true;
-            MainForm.ButtonNext.Enabled = true;
-            MainForm.ButtonNext.Text = "安装";
-            MainForm.ButtonCancel.Enabled = true;
+            MainForm.ButtonPrevious.Enabled = false;
+            MainForm.ButtonNext.Enabled = false;
+            MainForm.ButtonNext.Text = "下一步 >";
+            MainForm.ButtonCancel.Enabled = false;
+            MainForm.CloseButtonEnabled = false;
+            new Thread(() =>
+            {
+                Install();
+            }).Start();
         }
     }
 }

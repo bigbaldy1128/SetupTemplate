@@ -56,12 +56,12 @@ namespace SetupTemplate.UserControls
 
         public void Previous()
         {
-            SetupUtil.GoTo(typeof(Welcome_UserControl));
+            Util.Navigate(typeof(Welcome_UserControl));
         }
 
         public void Next()
         {
-            
+            Util.Navigate(typeof(Setup_UserControl));
         }
 
         private void installPath_textBox_TextChanged(object sender, EventArgs e)
