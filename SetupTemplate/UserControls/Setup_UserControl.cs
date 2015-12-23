@@ -22,6 +22,7 @@ namespace SetupTemplate.UserControls
             InitializeComponent();
             Label = this.label2;
             ProgressBar = this.progressBar1;
+            label1.Text = string.Format("请等待“{0}”的安装完成", StringConst.ProductName);
         }
 
         public void Previous()

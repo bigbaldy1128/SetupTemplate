@@ -15,6 +15,10 @@ namespace SetupTemplate.UserControls
         public SetupFinished_UserControl()
         {
             InitializeComponent();
+            label2.Text = string.Format("完成“{0}”安装向导", StringConst.ProductName);
+            label1.Text = string.Format(@"“{0}”的安装已完成。
+
+单击[完成] 关闭向导。", StringConst.ProductName);
         }
 
         public void Next()

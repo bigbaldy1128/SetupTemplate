@@ -14,6 +14,10 @@ namespace SetupTemplate.UserControls
         public Welcome_UserControl()
         {
             InitializeComponent();
+            label2.Text = string.Format("欢迎使用“{0}”安装向导", StringConst.ProductName);
+            label1.Text = string.Format(@"这个向导将指引你完成“{0}”的安装进程。
+
+单击[下一步] 继续。", StringConst.ProductName);
         }
 
         public void Next()

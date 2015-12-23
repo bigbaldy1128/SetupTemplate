@@ -8,7 +8,7 @@ namespace SetupTemplate
 {
     public class StringConst
     {
-        public const string SetupTitle = "title";
-        public const string SetupPath = "path";
+        public const string ProductName = "C#引擎";
+        public const string SetupPath = "SkyDotNet";
     }
 }

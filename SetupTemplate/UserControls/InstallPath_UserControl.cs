@@ -15,6 +15,13 @@ namespace SetupTemplate.UserControls
         public InstallPath_UserControl()
         {
             InitializeComponent();
+            label2.Text = string.Format("选择“{0}”的安装文件夹。", StringConst.ProductName);
+            label3.Text = string.Format("即将安装 {0} 在下列文件夹。要安装到不同文件夹，单击 [浏览] 并选择其他的文件夹。单击 [下一步] 继续。", StringConst.ProductName);
+            installPath_textBox.Text = string.Format("C:\\{0}", StringConst.SetupPath);
+            if (Util.CurrentInstallInfo != null)
+            {
+                installPath_textBox.Text = Util.CurrentInstallInfo.Path;
+            }
         }
 
         string GetNeedSpace()
@@ -61,6 +68,7 @@ namespace SetupTemplate.UserControls
 
         public void Next()
         {
+            Util.CurrentInstallInfo.Path = installPath_textBox.Text;
             Util.Navigate(typeof(Setup_UserControl));
         }
 
