@@ -23,7 +23,7 @@ namespace SetupTemplate.UserControls
 
         public void Next()
         {
-            Util.Exit();
+            Application.Exit();
         }
 
         public void Previous()

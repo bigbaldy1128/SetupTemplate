@@ -60,11 +60,10 @@
   <ItemGroup>
     <Compile Include="AssemblyUtil.cs" />
     <Compile Include="Extension.cs" />
+    <Compile Include="InstallationSteps\FinishInstall.cs" />
     <Compile Include="InstallationSteps\FreeInstallFiles.cs" />
     <Compile Include="InstallationSteps\IInstallationStep.cs" />
     <Compile Include="InstallationSteps\InstallationStepAttribute.cs" />
-    <Compile Include="InstallationSteps\InstallFiles.cs" />
-    <Compile Include="InstallationSteps\RegInstallInfo.cs" />
     <Compile Include="InstallInfo.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="MainForm.cs">
@@ -133,6 +132,7 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="InstallFiles\package.zip" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -150,9 +150,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="InstallFiles\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

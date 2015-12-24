@@ -72,7 +72,7 @@ namespace SetupTemplate
         {
             if (MessageBox.Show("您确定要退出安装？", "退出安装", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
-                Util.Exit();
+                Application.Exit();
             }
         }
     }
