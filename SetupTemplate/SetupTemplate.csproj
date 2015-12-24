@@ -129,13 +129,7 @@
     </EmbeddedResource>
     <None Include="app.manifest" />
     <Content Include="Libs\ICSharpCode.SharpZipLib.dll" />
-    <Content Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="InstallFiles\package.zip" />
-    <None Include="NLog.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
