@@ -12,9 +12,9 @@ namespace SetupTemplate.InstallationSteps
     /// <summary>
     /// 完成安装
     /// </summary>
-    public class FinishInstall : IInstallationStep
+    public class FinishInstall : InstallationStepBase
     {
-        public int Order
+        public override int Order
         {
             get
             {
@@ -22,7 +22,7 @@ namespace SetupTemplate.InstallationSteps
             }
         }
 
-        public void ClearInstallFiles()
+        void ClearInstallFiles()
         {
             var tempPath = Path.GetTempPath();
             string packageZip = Path.Combine(tempPath, "package.zip");
@@ -37,7 +37,7 @@ namespace SetupTemplate.InstallationSteps
             }
         }
 
-        public void Setup(Setup_UserControl setupUI)
+        public override void Setup(Setup_UserControl setupUI)
         {
             setupUI.SafeCall(() =>
             {
@@ -47,7 +47,7 @@ namespace SetupTemplate.InstallationSteps
 
             ClearInstallFiles();
             Thread.Sleep(50);
-            Util.RegInstallInfo();
+            SetupUtil.RegInstallInfo();
 
             setupUI.SafeCall(() =>
             {

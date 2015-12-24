@@ -15,18 +15,11 @@ namespace SetupTemplate.UserControls
         public InstallPath_UserControl()
         {
             InitializeComponent();
-            label2.Text = string.Format("选择“{0}”的安装文件夹。", StringConst.ProductName);
-            label3.Text = string.Format("即将安装 {0} 在下列文件夹。要安装到不同文件夹，单击 [浏览] 并选择其他的文件夹。单击 [下一步] 继续。", StringConst.ProductName);
-            installPath_textBox.Text = string.Format("C:\\{0}", StringConst.SetupPath);
-            if (Util.CurrentInstallInfo != null)
-            {
-                installPath_textBox.Text = Util.CurrentInstallInfo.Path;
-            }
         }
 
         string GetNeedSpace()
         {
-            string dir = Path.Combine(Path.GetTempPath(), "CodeSecurity");
+            string dir = Path.Combine(Path.GetTempPath(), "package");
             if (!Directory.Exists(dir))
             {
                 return "0MB";
@@ -63,13 +56,13 @@ namespace SetupTemplate.UserControls
 
         public void Previous()
         {
-            Util.Navigate(typeof(Welcome_UserControl));
+            SetupUtil.Navigate(typeof(Welcome_UserControl));
         }
 
         public void Next()
         {
-            Util.CurrentInstallInfo.Path = installPath_textBox.Text;
-            Util.Navigate(typeof(Setup_UserControl));
+            SetupUtil.CurrentInstallInfo.InstallationPath = installPath_textBox.Text;
+            SetupUtil.Navigate(typeof(Setup_UserControl));
         }
 
         private void installPath_textBox_TextChanged(object sender, EventArgs e)
@@ -103,6 +96,14 @@ namespace SetupTemplate.UserControls
             MainForm.ButtonCancel.Enabled = true;
             needSpace_label.Text = GetNeedSpace();
             hdFreeSpace_label.Text = GetDriveFreeSpace(installPath_textBox.Text[0].ToString());
+
+            label2.Text = string.Format("选择“{0}”的安装文件夹。", StringConst.ProductName);
+            label3.Text = string.Format("即将安装 {0} 在下列文件夹。要安装到不同文件夹，单击 [浏览] 并选择其他的文件夹。单击 [下一步] 继续。", StringConst.ProductName);
+            installPath_textBox.Text = string.Format("C:\\{0}", StringConst.SetupPath);
+            if (!string.IsNullOrEmpty(SetupUtil.CurrentInstallInfo.InstallationPath))
+            {
+                installPath_textBox.Text = SetupUtil.CurrentInstallInfo.InstallationPath;
+            }
         }
     }
 }

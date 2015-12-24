@@ -13,9 +13,9 @@ namespace SetupTemplate.InstallationSteps
     /// <summary>
     /// 释放安装文件
     /// </summary>
-    public class FreeInstallFiles : IInstallationStep
+    public class FreeInstallFiles : InstallationStepBase
     {
-        public int Order
+        public override int Order
         {
             get
             {
@@ -57,7 +57,7 @@ namespace SetupTemplate.InstallationSteps
             }
         }
 
-        public void Setup(Setup_UserControl setupUI)
+        public override void Setup(Setup_UserControl setupUI)
         {
             setupUI.SafeCall(() =>
             {

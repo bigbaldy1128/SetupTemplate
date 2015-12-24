@@ -54,8 +54,8 @@ namespace SetupTemplate
             ButtonPrevious = button1;
             SetupMainForm = this;
             this.Text =string.Format("{0}({1})安装向导",StringConst.ProductName, Application.ProductVersion);
-            Util.Navigate(typeof(Welcome_UserControl));
-            Util.InitInstallInfo();
+            SetupUtil.Navigate(typeof(Welcome_UserControl));
+            SetupUtil.InitInstallInfo();
         }
 
         private void button1_Click(object sender, EventArgs e) //上一步
