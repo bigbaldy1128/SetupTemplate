@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyUtil.cs" />
+    <Compile Include="CommandLines\CommandArgs.cs" />
+    <Compile Include="CommandLines\CommandLine.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="InstallationSteps\FinishInstall.cs" />
     <Compile Include="InstallationSteps\FreeInstallFiles.cs" />
